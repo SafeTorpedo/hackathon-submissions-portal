@@ -1,6 +1,11 @@
 import bulb from "/bulb.png";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate("/new");
+    };
     return (
         <div className=" bg-[#003145] h-[416px] w-full ">
             <div className="grid grid-cols-2">
@@ -20,7 +25,10 @@ const Hero = () => {
                     <img src={bulb} className=" w-[199.89px] h-[300px]"></img>
                 </div>
             </div>
-            <button className=" flex flex-row shadow w-[194px] justify-center h-[52px] ml-[142px] p-[12px] -mt-[40px] text-white bg-[#44924C] rounded-xl font-[Poppings] font-normal text-base">
+            <button
+                onClick={handleClick}
+                className=" flex flex-row shadow w-[194px] justify-center h-[52px] ml-[142px] p-[12px] -mt-[40px] text-white bg-[#44924C] rounded-xl font-[Poppings] font-normal text-base"
+            >
                 Upload Submission
             </button>
         </div>

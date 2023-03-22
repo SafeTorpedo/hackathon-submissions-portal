@@ -5,9 +5,10 @@ import Tab from "@mui/material/Tab";
 import { useState } from "react";
 
 const TabMenu = () => {
-    const [value, setValue] = useState("1");
-    const [order, setOrder] = useState("Newest");
+    const [value, setValue] = useState("all");
     const [search, setSearch] = useState("");
+    const [order, setOrder] = useState("Newest");
+
     const handleChange = (e: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
     };
@@ -22,11 +23,11 @@ const TabMenu = () => {
                             textColor="primary"
                             indicatorColor="primary"
                         >
-                            <Tab label="All Submissions" value="1" />
-                            <Tab label="Favourite Submissions" value="2" />
+                            <Tab label="All Submissions" value="all" />
+                            <Tab label="Favourite Submissions" value="fav" />
                         </TabList>
-                        <TabPanel value="1">One</TabPanel>
-                        <TabPanel value="2">Two</TabPanel>
+                        <TabPanel value="all">One</TabPanel>
+                        <TabPanel value="fav">Two</TabPanel>
                     </TabContext>
                 </div>
                 <div>
