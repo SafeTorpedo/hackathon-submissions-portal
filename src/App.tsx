@@ -35,6 +35,7 @@ function App() {
                                             endDate={value.endDate}
                                             github={value.github}
                                             other={value.other}
+                                            fav={value.fav}
                                         />
                                     }
                                 />

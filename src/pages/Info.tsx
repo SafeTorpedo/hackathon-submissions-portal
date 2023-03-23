@@ -13,6 +13,7 @@ const Info = ({
     endDate,
     github,
     other,
+    fav,
 }) => {
     return (
         <>
@@ -22,6 +23,7 @@ const Info = ({
                 title={title}
                 summary={summary}
                 id={id}
+                starValue={fav}
             />
             <InfoMain
                 description={description}

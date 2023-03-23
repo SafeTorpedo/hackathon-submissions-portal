@@ -52,6 +52,7 @@ const Form = () => {
         endDate: "",
         github: "",
         other: "",
+        fav: false,
     });
 
     return (
@@ -59,7 +60,7 @@ const Form = () => {
             <h1 className=" font-medium text-2xl pt-[30px] pl-[48px]">
                 New Hackathon Submission
             </h1>
-            <form className="mt-[40px]" onSubmit={handleSubmit}>
+            <form className="" onSubmit={handleSubmit}>
                 <div>
                     <label
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -79,7 +80,7 @@ const Form = () => {
                         placeholder="Title of your submission"
                     />
                 </div>
-                <div className="mt-4">
+                <div className="">
                     <label
                         htmlFor="summary"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -101,7 +102,7 @@ const Form = () => {
                         placeholder="A short summary of your submission (this will be visible with your submission)"
                     />
                 </div>
-                <div className="mt-4">
+                <div className="">
                     <label
                         htmlFor="description"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -123,7 +124,7 @@ const Form = () => {
                     />
                 </div>
                 {/* cover image input */}
-                <div className="mt-4">
+                <div className="">
                     <label
                         htmlFor="coverImage"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -141,7 +142,7 @@ const Form = () => {
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] ml-[45px] p-[11px] font-[Poppins] text-sm"
                     />
                 </div>
-                <div className="mt-4">
+                <div className="">
                     <label
                         htmlFor="name"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -161,7 +162,7 @@ const Form = () => {
                     />
                 </div>
                 {/*start and end date */}
-                <div className="mt-4 grid grid-cols-2">
+                <div className=" grid grid-cols-2">
                     <div>
                         <label
                             htmlFor="startDate"
@@ -180,7 +181,7 @@ const Form = () => {
                             }}
                             type="date"
                             id="startDate"
-                            className="border border-gray-500 rounded-lg w-[250px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
+                            className="border border-gray-500 rounded-lg w-[250px] h-[40px] ml-[45px] p-[11px] font-[Poppins] text-sm"
                         />
                     </div>
                     <div>
@@ -206,7 +207,7 @@ const Form = () => {
                     </div>
                 </div>
 
-                <div className="mt-4">
+                <div className="">
                     <label
                         htmlFor="github"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -228,7 +229,7 @@ const Form = () => {
                         placeholder="Enter your submission's public GitHub repository link"
                     />
                 </div>
-                <div className="mt-4">
+                <div className="-mt-2">
                     <label
                         htmlFor="other"
                         className="font-medium text-lg pt-[30px]  pl-[48px]"
@@ -249,7 +250,7 @@ const Form = () => {
                 </div>
 
                 {/* submit button */}
-                <div className="mt-4">
+                <div className="">
                     <button
                         type="submit"
                         className="bg-[#44924c] text-white font-medium rounded-lg p-2 w-[150px] h-[40px] mt-2 ml-[45px] font-[Poppins] text-sm"

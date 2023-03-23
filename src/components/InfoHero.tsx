@@ -2,8 +2,25 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
 
-const InfoHero = ({ title, coverImage, summary, id }) => {
+const InfoHero = ({ title, coverImage, summary, id, starValue }) => {
+    const [fav, setFav] = useState(starValue);
+
+    const handleClick = () => {
+        setFav(!fav);
+
+        //update fav value in local storage for this submission
+        const data = JSON.parse(localStorage.getItem("data") || "[]");
+        const newData = data.map((value) => {
+            if (value.id === id) {
+                return { ...value, fav: !fav };
+            }
+            return value;
+        });
+        localStorage.setItem("data", JSON.stringify(newData));
+    };
+
     const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClose = () => {
@@ -70,7 +87,13 @@ const InfoHero = ({ title, coverImage, summary, id }) => {
                     {summary}
                 </p>
                 <div className="grid grid-cols-2 text-white mt-5">
-                    <h1 className="ml-[142px] ">S</h1>
+                    <span className="ml-[142px] ">
+                        <FaStar
+                            size={24}
+                            onClick={handleClick}
+                            color={fav === true ? "orange" : "grey"}
+                        />
+                    </span>
                     <h1 className="-ml-[450px]">{id.slice(0, 10)}</h1>
                 </div>
             </div>

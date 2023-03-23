@@ -42,6 +42,12 @@ const CardList = ({
             return value.title.toLowerCase().includes(search.toLowerCase());
         });
 
+    //filter newData according to value (fav) for all data having fav true
+    if (value === "fav")
+        newData = newData.filter((value) => {
+            return value.fav === true;
+        });
+
     console.log(newData);
 
     return (

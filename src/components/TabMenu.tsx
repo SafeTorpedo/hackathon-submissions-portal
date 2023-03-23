@@ -34,7 +34,13 @@ const TabMenu = () => {
                                 order={order}
                             />
                         </TabPanel>
-                        <TabPanel value="fav">Two</TabPanel>
+                        <TabPanel className="-ml-20" value="fav">
+                            <CardList
+                                value={value}
+                                search={search}
+                                order={order}
+                            />
+                        </TabPanel>
                     </TabContext>
                 </div>
                 <div>
