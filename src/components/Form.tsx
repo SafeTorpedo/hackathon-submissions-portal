@@ -3,21 +3,46 @@ import { useNavigate } from "react-router-dom";
 
 const Form = () => {
     const navigate = useNavigate();
+
+    //image conversion
+    const getBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onabort = (error) => reject(error);
+            reader.readAsDataURL(file);
+        });
+    };
+
+    //handling image upload
+    const handleImage = (e) => {
+        const file = e.target.files[0];
+        getBase64(file).then((base64) => {
+            setFormData({
+                ...formData,
+                coverImage: base64,
+            });
+        });
+    };
+
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
+
         //save data to local storage for multiple submissions
         const data = JSON.parse(localStorage.getItem("data") || "[]");
         data.push(formData);
-        //use today's date time as key
-        const date = new Date();
-        const key = date.toLocaleDateString() + date.toLocaleTimeString();
-        localStorage.setItem(key, JSON.stringify(data));
+        localStorage.setItem("data", JSON.stringify(data));
 
         //navigate to home page
         navigate("/");
     };
     // a state for all form data
     const [formData, setFormData] = useState({
+        id: `${
+            new Date().toLocaleDateString() +
+            " " +
+            new Date().toLocaleTimeString()
+        }`,
         title: "",
         summary: "",
         description: "",
@@ -110,13 +135,7 @@ const Form = () => {
                     </p>
                     <br />
                     <input
-                        value={formData.coverImage}
-                        onChange={(e) => {
-                            setFormData({
-                                ...formData,
-                                coverImage: e.target.value,
-                            });
-                        }}
+                        onChange={handleImage}
                         type="file"
                         id="coverImage"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] ml-[45px] p-[11px] font-[Poppins] text-sm"

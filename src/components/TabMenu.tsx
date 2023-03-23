@@ -3,6 +3,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import Tab from "@mui/material/Tab";
 import { useState } from "react";
+import CardList from "./CardList";
 
 const TabMenu = () => {
     const [value, setValue] = useState("all");
@@ -26,7 +27,13 @@ const TabMenu = () => {
                             <Tab label="All Submissions" value="all" />
                             <Tab label="Favourite Submissions" value="fav" />
                         </TabList>
-                        <TabPanel value="all">One</TabPanel>
+                        <TabPanel className="-ml-20" value="all">
+                            <CardList
+                                value={value}
+                                search={search}
+                                order={order}
+                            />
+                        </TabPanel>
                         <TabPanel value="fav">Two</TabPanel>
                     </TabContext>
                 </div>
