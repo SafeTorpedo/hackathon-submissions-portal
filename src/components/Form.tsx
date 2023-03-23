@@ -1,7 +1,33 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const Form = () => {
+    const navigate = useNavigate();
     const handleSubmit = (e: React.SyntheticEvent) => {
         e.preventDefault();
+        //save data to local storage for multiple submissions
+        const data = JSON.parse(localStorage.getItem("data") || "[]");
+        data.push(formData);
+        //use today's date time as key
+        const date = new Date();
+        const key = date.toLocaleDateString() + date.toLocaleTimeString();
+        localStorage.setItem(key, JSON.stringify(data));
+
+        //navigate to home page
+        navigate("/");
     };
+    // a state for all form data
+    const [formData, setFormData] = useState({
+        title: "",
+        summary: "",
+        description: "",
+        coverImage: "",
+        name: "",
+        startDate: "",
+        endDate: "",
+        github: "",
+        other: "",
+    });
 
     return (
         <div className="bg-white mt-[50px] ml-[142px] mr-[385px] h-[1155px] w-[913px] rounded-xl">
@@ -18,6 +44,10 @@ const Form = () => {
                     </label>
                     <br />
                     <input
+                        value={formData.title}
+                        onChange={(e) =>
+                            setFormData({ ...formData, title: e.target.value })
+                        }
                         id="title"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
                         type="text"
@@ -33,6 +63,13 @@ const Form = () => {
                     </label>
                     <br />
                     <input
+                        value={formData.summary}
+                        onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                summary: e.target.value,
+                            });
+                        }}
                         type="text"
                         id="summary"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -48,6 +85,13 @@ const Form = () => {
                     </label>
                     <br />
                     <textarea
+                        value={formData.description}
+                        onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                description: e.target.value,
+                            });
+                        }}
                         id="description"
                         className="border border-gray-500 rounded-lg w-[700px] h-[200px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
                         placeholder="Write a long description of your project. You can describe your ideas and approach here."
@@ -66,6 +110,13 @@ const Form = () => {
                     </p>
                     <br />
                     <input
+                        value={formData.coverImage}
+                        onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                coverImage: e.target.value,
+                            });
+                        }}
                         type="file"
                         id="coverImage"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -80,6 +131,10 @@ const Form = () => {
                     </label>
                     <br />
                     <input
+                        value={formData.name}
+                        onChange={(e) => {
+                            setFormData({ ...formData, name: e.target.value });
+                        }}
                         type="text"
                         id="name"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -97,6 +152,13 @@ const Form = () => {
                         </label>
                         <br />
                         <input
+                            value={formData.startDate}
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    startDate: e.target.value,
+                                });
+                            }}
                             type="date"
                             id="startDate"
                             className="border border-gray-500 rounded-lg w-[250px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -111,6 +173,13 @@ const Form = () => {
                         </label>
 
                         <input
+                            value={formData.endDate}
+                            onChange={(e) => {
+                                setFormData({
+                                    ...formData,
+                                    endDate: e.target.value,
+                                });
+                            }}
                             type="date"
                             id="endDate"
                             className="border border-gray-500 rounded-lg w-[250px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -127,6 +196,13 @@ const Form = () => {
                     </label>
                     <br />
                     <input
+                        value={formData.github}
+                        onChange={(e) => {
+                            setFormData({
+                                ...formData,
+                                github: e.target.value,
+                            });
+                        }}
                         type="text"
                         id="github"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
@@ -142,6 +218,10 @@ const Form = () => {
                     </label>
                     <br />
                     <input
+                        value={formData.other}
+                        onChange={(e) => {
+                            setFormData({ ...formData, other: e.target.value });
+                        }}
                         type="text"
                         id="other"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] mt-2 ml-[45px] p-[11px] font-[Poppins] text-sm"
