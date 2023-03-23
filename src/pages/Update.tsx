@@ -1,5 +1,6 @@
 import FormEdit from "../components/FormEdit";
 import Navbar from "../components/Navbar";
+import schema from "../types/schema";
 
 const Update = ({
     coverImage,
@@ -12,7 +13,8 @@ const Update = ({
     endDate,
     github,
     other,
-}) => {
+    fav,
+}: schema) => {
     return (
         <>
             <Navbar />
@@ -27,6 +29,7 @@ const Update = ({
                 endDate={endDate}
                 github={github}
                 other={other}
+                fav={fav}
             />
         </>
     );

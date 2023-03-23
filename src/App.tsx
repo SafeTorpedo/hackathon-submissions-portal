@@ -6,6 +6,7 @@ import Info from "./pages/Info";
 import "./App.css";
 import New from "./pages/New";
 import Update from "./pages/Update";
+import schema from "./types/schema";
 
 function App() {
     //fetch data from local storage
@@ -20,7 +21,7 @@ function App() {
 
                     {
                         // create route for every title in data
-                        data.map((value) => {
+                        data.map((value: schema) => {
                             return (
                                 <Route
                                     key={value.id}
@@ -46,7 +47,7 @@ function App() {
                     }
                     {
                         //create route for every update page in data
-                        data.map((value) => {
+                        data.map((value: schema) => {
                             return (
                                 <Route
                                     key={value.id}
@@ -63,6 +64,7 @@ function App() {
                                             endDate={value.endDate}
                                             github={value.github}
                                             other={value.other}
+                                            fav={value.fav}
                                         />
                                     }
                                 />

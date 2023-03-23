@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import schema from "../types/schema";
+
 const FormEdit = ({
     coverImage,
     title,
@@ -13,7 +15,7 @@ const FormEdit = ({
     github,
     other,
     fav,
-}) => {
+}: schema) => {
     const navigate = useNavigate();
 
     //image conversion
@@ -42,7 +44,7 @@ const FormEdit = ({
 
         //update data to local storage for multiple submissions
         const data = JSON.parse(localStorage.getItem("data") || "[]");
-        const newData = data.map((value) => {
+        const newData = data.map((value: schema) => {
             if (value.id === id) {
                 return {
                     ...value,

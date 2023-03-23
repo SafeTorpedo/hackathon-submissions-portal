@@ -3,8 +3,21 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
+import schema from "../types/schema";
 
-const InfoHero = ({ title, coverImage, summary, id, starValue }) => {
+const InfoHero = ({
+    title,
+    coverImage,
+    summary,
+    id,
+    starValue,
+}: {
+    title: string;
+    coverImage: string;
+    summary: string;
+    id: string;
+    starValue: boolean;
+}) => {
     const [fav, setFav] = useState(starValue);
 
     const handleClick = () => {
@@ -12,7 +25,7 @@ const InfoHero = ({ title, coverImage, summary, id, starValue }) => {
 
         //update fav value in local storage for this submission
         const data = JSON.parse(localStorage.getItem("data") || "[]");
-        const newData = data.map((value) => {
+        const newData = data.map((value: schema) => {
             if (value.id === id) {
                 return { ...value, fav: !fav };
             }
@@ -29,7 +42,7 @@ const InfoHero = ({ title, coverImage, summary, id, starValue }) => {
     const handleDelete = () => {
         //delete from local storage having title
         const data = JSON.parse(localStorage.getItem("data") || "[]");
-        const newData = data.filter((value) => value.title !== title);
+        const newData = data.filter((value: schema) => value.title !== title);
         localStorage.setItem("data", JSON.stringify(newData));
         navigate("/");
     };

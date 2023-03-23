@@ -1,6 +1,7 @@
 import InfoHero from "../components/InfoHero";
 import InfoMain from "../components/InfoMain";
 import Navbar from "../components/Navbar";
+import schema from "../types/schema";
 
 const Info = ({
     coverImage,
@@ -14,7 +15,7 @@ const Info = ({
     github,
     other,
     fav,
-}) => {
+}: schema) => {
     return (
         <>
             <Navbar />
