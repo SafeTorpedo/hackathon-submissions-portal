@@ -1,4 +1,18 @@
-const InfoMain = ({ description, name, startDate, endDate, github, other }) => {
+const InfoMain = ({
+    description,
+    name,
+    startDate,
+    endDate,
+    github,
+    other,
+}: {
+    description: string;
+    name: string;
+    startDate: string;
+    endDate: string;
+    github: string;
+    other: string;
+}) => {
     return (
         <div className="grid grid-cols-2 pl-[140px] pt-[57px] bg-white">
             <div className="">

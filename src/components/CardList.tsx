@@ -1,4 +1,5 @@
 import Card from "./Card";
+import schema from "../types/schema";
 
 const CardList = ({
     value,
@@ -12,7 +13,7 @@ const CardList = ({
     //get data from local storage
     const data = JSON.parse(localStorage.getItem("data") || "[]");
 
-    var newData = data.map((value) => {
+    var newData = data.map((value: schema) => {
         const [day1, month1] = value.id.split("/");
         const day1Num = parseInt(day1);
         const month1Num = Number(month1);
@@ -33,18 +34,38 @@ const CardList = ({
     });
 
     //sort newData according to diffDays
-    if (order === "Newest") newData.sort((a, b) => a.diffDays - b.diffDays);
-    else newData.sort((a, b) => b.diffDays - a.diffDays);
+    if (order === "Newest")
+        newData.sort(
+            (
+                a: {
+                    diffDays: number;
+                },
+                b: {
+                    diffDays: number;
+                }
+            ) => a.diffDays - b.diffDays
+        );
+    else
+        newData.sort(
+            (
+                a: {
+                    diffDays: number;
+                },
+                b: {
+                    diffDays: number;
+                }
+            ) => b.diffDays - a.diffDays
+        );
 
     //filter newData according to search
     if (search !== "")
-        newData = newData.filter((value) => {
+        newData = newData.filter((value: schema) => {
             return value.title.toLowerCase().includes(search.toLowerCase());
         });
 
     //filter newData according to value (fav) for all data having fav true
     if (value === "fav")
-        newData = newData.filter((value) => {
+        newData = newData.filter((value: schema) => {
             return value.fav === true;
         });
 
@@ -52,17 +73,25 @@ const CardList = ({
 
     return (
         <div className="grid grid-cols-3 gap-x-96 gap-y-9">
-            {newData.map((value) => {
-                return (
-                    <Card
-                        key={value.id}
-                        title={value.title}
-                        image={value.coverImage}
-                        summary={value.summary}
-                        diffDays={value.diffDays}
-                    />
-                );
-            })}
+            {newData.map(
+                (value: {
+                    id: string;
+                    title: string;
+                    coverImage: string;
+                    summary: string;
+                    diffDays: number;
+                }) => {
+                    return (
+                        <Card
+                            key={value.id}
+                            title={value.title}
+                            image={value.coverImage}
+                            summary={value.summary}
+                            diffDays={value.diffDays}
+                        />
+                    );
+                }
+            )}
         </div>
     );
 };
