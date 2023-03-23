@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Card = ({
     title,
     image,
@@ -16,8 +18,9 @@ const Card = ({
                     className="ml-[24px] mt-[24px] h-[100px] w-[100px] rounded-md"
                     src={image}
                 />
+
                 <h2 className="pt-[59px] pl-[12px] font-medium text-xl">
-                    {title}
+                    <Link to={`/${title}`}>{title}</Link>
                 </h2>
             </div>
             <p className="pt-[32px] pl-[24px] w-[312px] h-[60px] font-normal text-sm">

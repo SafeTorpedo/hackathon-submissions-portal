@@ -49,6 +49,7 @@ const CardList = ({
             {newData.map((value) => {
                 return (
                     <Card
+                        key={value.id}
                         title={value.title}
                         image={value.coverImage}
                         summary={value.summary}
