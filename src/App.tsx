@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Info from "./pages/Info";
 import "./App.css";
 import New from "./pages/New";
+import Update from "./pages/Update";
 
 function App() {
     //fetch data from local storage
@@ -16,6 +17,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/new" element={<New />} />
+
                     {
                         // create route for every title in data
                         data.map((value) => {
@@ -36,6 +38,31 @@ function App() {
                                             github={value.github}
                                             other={value.other}
                                             fav={value.fav}
+                                        />
+                                    }
+                                />
+                            );
+                        })
+                    }
+                    {
+                        //create route for every update page in data
+                        data.map((value) => {
+                            return (
+                                <Route
+                                    key={value.id}
+                                    path={`/${value.title}/edit`}
+                                    element={
+                                        <Update
+                                            coverImage={value.coverImage}
+                                            title={value.title}
+                                            summary={value.summary}
+                                            id={value.id}
+                                            description={value.description}
+                                            name={value.name}
+                                            startDate={value.startDate}
+                                            endDate={value.endDate}
+                                            github={value.github}
+                                            other={value.other}
                                         />
                                     }
                                 />

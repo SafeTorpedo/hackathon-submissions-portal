@@ -71,7 +71,10 @@ const InfoHero = ({ title, coverImage, summary, id, starValue }) => {
                         </h1>
                     </div>
                     <div className="text-white pl-96">
-                        <button className="w-[100px] h-[40px] rounded-lg border border-white">
+                        <button
+                            onClick={() => navigate(`/${title}/edit`)}
+                            className="w-[100px] h-[40px] rounded-lg border border-white"
+                        >
                             Edit
                         </button>
                         <br />
