@@ -89,7 +89,7 @@ const FormEdit = ({
     });
 
     return (
-        <div className="bg-white mt-[50px] ml-[142px] mr-[385px] h-[1155px] w-[913px] rounded-xl">
+        <div className="bg-white mt-[50px] ml-[142px] mr-[385px] h-[1250px] w-[913px] rounded-xl">
             <h1 className=" font-medium text-2xl pt-[30px] pl-[48px]">
                 Edit Hackathon Submission
             </h1>
@@ -286,7 +286,7 @@ const FormEdit = ({
                 <div className="">
                     <button
                         type="submit"
-                        className="bg-[#44924c] text-white font-medium rounded-lg p-2 w-[150px] h-[40px] mt-2 ml-[45px] font-[Poppins] text-sm"
+                        className="bg-[#44924c] text-white font-medium rounded-lg p-2 w-[150px] h-[40px] mt-4 ml-[45px] font-[Poppins] text-sm"
                     >
                         Edit Submission
                     </button>
