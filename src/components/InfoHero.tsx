@@ -5,6 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import schema from "../types/schema";
 
+import { MdEdit, MdDelete } from "react-icons/md";
+import { TbMinusVertical } from "react-icons/tb";
+import moment from "moment";
+
 const InfoHero = ({
     title,
     coverImage,
@@ -18,6 +22,10 @@ const InfoHero = ({
     id: string;
     starValue: boolean;
 }) => {
+    const getDate = (date: string): string => {
+        const newDate = moment(date, "DD/MM/YYYY").format("DD MMMM, YYYY");
+        return newDate;
+    };
     const [fav, setFav] = useState(starValue);
 
     const handleClick = () => {
@@ -78,7 +86,10 @@ const InfoHero = ({
             <div className=" bg-[#003145] h-[416px] w-full ">
                 <div className="grid grid-cols-2 pt-[96px] pl-[142px]">
                     <div className="grid grid-cols-2">
-                        <img src={coverImage} className="w-[120px] h-[120px]" />
+                        <img
+                            src={coverImage}
+                            className="w-[120px] h-[120px] rounded-xl"
+                        />
                         <h1 className="text-white font-semibold text-[42px] mt-4 -ml-20">
                             {title}
                         </h1>
@@ -86,15 +97,17 @@ const InfoHero = ({
                     <div className="text-white pl-96">
                         <button
                             onClick={() => navigate(`/${title}/edit`)}
-                            className="w-[100px] h-[40px] rounded-lg border border-white"
+                            className="w-[100px] h-[40px] rounded-lg border border-white text-center"
                         >
+                            <MdEdit className="inline mr-2 -mt-1" size={20} />
                             Edit
                         </button>
                         <br />
                         <button
                             onClick={() => setShow(true)}
-                            className="mt-4 w-[100px] h-[40px] rounded-lg border border-white"
+                            className="mt-4 w-[100px] h-[40px] rounded-lg border border-white text-center"
                         >
+                            <MdDelete className="inline mr-2 -mt-1" size={20} />
                             Delete
                         </button>
                     </div>
@@ -110,7 +123,14 @@ const InfoHero = ({
                             color={fav === true ? "orange" : "grey"}
                         />
                     </span>
-                    <h1 className="-ml-[450px]">{id.slice(0, 10)}</h1>
+                    <h1 className="-ml-[450px]">
+                        <TbMinusVertical
+                            className="inline -ml-4 mr-4 font-light -mt-1"
+                            size={35}
+                            color="gray"
+                        />
+                        {getDate(id.slice(0, 10))}
+                    </h1>
                 </div>
             </div>
         </>
