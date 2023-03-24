@@ -103,6 +103,7 @@ const FormEdit = ({
                     </label>
                     <br />
                     <input
+                        required
                         value={formData.title}
                         onChange={(e) =>
                             setFormData({ ...formData, title: e.target.value })
@@ -122,6 +123,7 @@ const FormEdit = ({
                     </label>
                     <br />
                     <input
+                        required
                         value={formData.summary}
                         onChange={(e) => {
                             setFormData({
@@ -144,6 +146,7 @@ const FormEdit = ({
                     </label>
                     <br />
                     <textarea
+                        required
                         value={formData.description}
                         onChange={(e) => {
                             setFormData({
@@ -184,6 +187,7 @@ const FormEdit = ({
                     </label>
                     <br />
                     <input
+                        required
                         value={formData.name}
                         onChange={(e) => {
                             setFormData({ ...formData, name: e.target.value });
@@ -205,6 +209,7 @@ const FormEdit = ({
                         </label>
                         <br />
                         <input
+                            required
                             value={formData.startDate}
                             onChange={(e) => {
                                 setFormData({
@@ -226,6 +231,7 @@ const FormEdit = ({
                         </label>
 
                         <input
+                            required
                             value={formData.endDate}
                             onChange={(e) => {
                                 setFormData({
@@ -249,6 +255,7 @@ const FormEdit = ({
                     </label>
                     <br />
                     <input
+                        required
                         value={formData.github}
                         onChange={(e) => {
                             setFormData({

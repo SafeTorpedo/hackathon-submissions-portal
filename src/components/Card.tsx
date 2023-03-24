@@ -30,8 +30,8 @@ const Card = ({
             <div className="mt-10 pr-[24px] text-xs">
                 <p className=" text-[#666666] text-right">
                     {diffDays == 0
-                        ? "Updated just now"
-                        : `Updated ${diffDays} days ago`}
+                        ? "Uploaded just now"
+                        : `Uploaded ${diffDays} days ago`}
                 </p>
             </div>
         </div>

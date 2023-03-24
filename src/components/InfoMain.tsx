@@ -48,13 +48,18 @@ const InfoMain = ({
                 </button>
 
                 <br />
-                <button
-                    className="  text-center bg-white border-gray-300 text-gray-700 border-2 border-spacing-3   h-[50px] w-[200px] ml-6 mt-4 p-2 rounded-xl"
-                    onClick={() => window.open(other, "_blank")}
-                >
-                    <BiLinkExternal className="inline mr-2 -mt-1" size={20} />
-                    Other Link
-                </button>
+                {other === "" ? null : (
+                    <button
+                        className="  text-center bg-white border-gray-300 text-gray-700 border-2 border-spacing-3   h-[50px] w-[200px] ml-6 mt-4 p-2 rounded-xl"
+                        onClick={() => window.open(other, "_blank")}
+                    >
+                        <BiLinkExternal
+                            className="inline mr-2 -mt-1"
+                            size={20}
+                        />
+                        Other Link
+                    </button>
+                )}
             </div>
         </div>
     );
