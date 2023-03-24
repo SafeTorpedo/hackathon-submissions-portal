@@ -69,8 +69,6 @@ const CardList = ({
             return value.fav === true;
         });
 
-    console.log(newData);
-
     return (
         <div className="grid grid-cols-3 gap-x-96 gap-y-9">
             {newData.map(

@@ -59,7 +59,6 @@ const InfoHero = ({
             <Modal
                 show={show}
                 onHide={handleClose}
-                size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -75,10 +74,16 @@ const InfoHero = ({
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={handleClose} variant="alert">
+                    <Button
+                        onClick={handleClose}
+                        className="bg-white text-gray-700 border-1 border-black rounded-lg hover:text-gray-800 hover:border-black"
+                    >
                         Cancel
                     </Button>
-                    <Button onClick={handleDelete} variant="alert">
+                    <Button
+                        onClick={handleDelete}
+                        className=" bg-red-700 text-white rounded-lg hover:bg-red-800"
+                    >
                         Delete
                     </Button>
                 </Modal.Footer>
