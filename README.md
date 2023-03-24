@@ -32,7 +32,7 @@ npm run dev
 6. Open developer tools and click on the application tab (to configure the existing dummy data)
 7. Click on the Local Storage tab
 8. Enter key as "data"
-9. Copy the contents of data.txt and paste it as the value
+9. Copy the contents of data.json and paste it as the value
 10. Refresh the page
 
 ## Features
