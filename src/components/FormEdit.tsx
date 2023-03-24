@@ -174,6 +174,7 @@ const FormEdit = ({
                     <input
                         onChange={handleImage}
                         type="file"
+                        accept="image/*"
                         id="coverImage"
                         className="border border-gray-500 rounded-lg w-[700px] h-[40px] ml-[45px] p-[11px] font-[Poppins] text-sm"
                     />
