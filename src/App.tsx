@@ -7,10 +7,20 @@ import "./App.css";
 import New from "./pages/New";
 import Update from "./pages/Update";
 import schema from "./types/schema";
+import { useEffect, useState } from "react";
 
 function App() {
-    //fetch data from local storage
-    const data = JSON.parse(localStorage.getItem("data") || "[]");
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        //fetch data from local storage
+        const data = localStorage.getItem("data");
+        if (data) {
+            const parsedData = JSON.parse(data);
+            //set data to state
+            setData(parsedData);
+        }
+    }, [data]);
 
     return (
         <>
